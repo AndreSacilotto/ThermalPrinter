@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxgmc6nds7o44"]
+
+[ext_resource type="Script" uid="uid://db3qjbmjmh5g8" path="res://GlobalScenes/Main.cs" id="1_3u1a1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u1a1"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="Main" type="PanelContainer" node_paths=PackedStringArray("Button_Calculator", "Button_Text", "Button_Monitor")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3u1a1")
+script = ExtResource("1_3u1a1")
+Button_Calculator = NodePath("VBoxContainer/Button_Calc")
+Button_Text = NodePath("VBoxContainer/Button_Text")
+Button_Monitor = NodePath("VBoxContainer/Button_Monitor")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button_Calc" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Calculator"
+
+[node name="Button_Text" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Text"
+
+[node name="Button_Monitor" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Monitor"

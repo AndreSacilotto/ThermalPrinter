@@ -1,0 +1,19 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.5.1">
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="NCalcSync" Version="5.7.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="project.godot" Visible="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\_Utility\EscPosNet\EscPosNet.csproj" />
+		<ProjectReference Include="..\_Utility\GodotGenerator\GodotGenerator.Attributes\Attributes.csproj" OutputItemType="Analyzer" />
+		<ProjectReference Include="..\_Utility\GodotGenerator\GodotGenerator.Generators\Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+</Project>

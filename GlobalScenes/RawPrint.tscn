@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpyjpmf27ic87"]
+
+[ext_resource type="Script" uid="uid://d3ol0icvhbsms" path="res://GlobalScenes/RawPrint.cs" id="1_qnr0n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnr0n"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="RawPrint" type="PanelContainer" node_paths=PackedStringArray("Button_Back", "Button_Print", "Spin_FontSize", "Edit")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnr0n")
+script = ExtResource("1_qnr0n")
+Button_Back = NodePath("VBoxContainer/HBoxContainer/Button_Back")
+Button_Print = NodePath("VBoxContainer/HBoxContainer/Button")
+Spin_FontSize = NodePath("VBoxContainer/HBoxContainer/SpinBox")
+Edit = NodePath("VBoxContainer/TextEdit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button_Back" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+min_value = 4.0
+max_value = 48.0
+value = 16.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Text"
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Print"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Write the text to print..."
+emoji_menu_enabled = false

@@ -1,0 +1,274 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqhbkcxrx51aw"]
+
+[ext_resource type="Script" uid="uid://dxcirc7jm4np5" path="res://GlobalScenes/Sequencer.cs" id="1_hojb4"]
+[ext_resource type="Script" uid="uid://cfjlr5hjs2qo1" path="res://Prefabs/SequencerButtonsContainer.cs" id="2_hojb4"]
+[ext_resource type="LabelSettings" uid="uid://csi2by0chqhp4" path="res://Prefabs/LabelSettingPreview.tres" id="2_sq40j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydynv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="Sequencer" type="PanelContainer" node_paths=PackedStringArray("Button_Back", "Button_Print", "Button_PrintHist", "Button_HideBtns", "Button_Clear", "Button_Reset", "Label_Memory", "Historic", "Line", "Spin_DecimalPlaces", "CalculatorButtons")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ydynv")
+script = ExtResource("1_hojb4")
+Button_Back = NodePath("Sequencer/HBoxContainer/Button_Back")
+Button_Print = NodePath("Sequencer/HBoxContainer/Button_P1")
+Button_PrintHist = NodePath("Sequencer/HBoxContainer/Button_P2")
+Button_HideBtns = NodePath("Sequencer/HBoxContainer/Button_Hide")
+Button_Clear = NodePath("Sequencer/HBoxContainer3/Button_C")
+Button_Reset = NodePath("Sequencer/HBoxContainer3/Button_CAll")
+Label_Memory = NodePath("Sequencer/HBoxContainer3/Label_Memory")
+Historic = NodePath("Sequencer/ItemList_Historic")
+Line = NodePath("Sequencer/LineEdit")
+Spin_DecimalPlaces = NodePath("Sequencer/HBoxContainer3/SpinBox_Dec")
+CalculatorButtons = NodePath("Sequencer/HBoxContainer_Btns")
+
+[node name="Sequencer" type="VBoxContainer" parent="."]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sequencer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Button_Back" type="Button" parent="Sequencer/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="Button_P1" type="Button" parent="Sequencer/HBoxContainer"]
+layout_mode = 2
+text = "Print"
+
+[node name="Button_P2" type="Button" parent="Sequencer/HBoxContainer"]
+layout_mode = 2
+text = "Print Historic"
+
+[node name="Button_Hide" type="Button" parent="Sequencer/HBoxContainer"]
+layout_mode = 2
+text = "Hide"
+
+[node name="ItemList_Historic" type="ItemList" parent="Sequencer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_behavior_recursive = 2
+allow_reselect = true
+allow_search = false
+wraparound_items = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Sequencer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Button_CAll" type="Button" parent="Sequencer/HBoxContainer3"]
+layout_mode = 2
+tooltip_text = "Clear"
+text = "Reset"
+
+[node name="Button_C" type="Button" parent="Sequencer/HBoxContainer3"]
+layout_mode = 2
+tooltip_text = "Clear"
+text = "Clear"
+
+[node name="SpinBox_Dec" type="SpinBox" parent="Sequencer/HBoxContainer3"]
+layout_mode = 2
+tooltip_text = "Clear"
+max_value = 6.0
+value = 2.0
+rounded = true
+
+[node name="Label_Memory" type="Label" parent="Sequencer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("2_sq40j")
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="Sequencer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+alignment = 2
+keep_editing_on_text_submit = true
+emoji_menu_enabled = false
+
+[node name="HBoxContainer_Btns" type="HBoxContainer" parent="Sequencer" node_paths=PackedStringArray("Button_Erase", "Button_Load", "Button_1", "Button_2", "Button_3", "Button_4", "Button_5", "Button_6", "Button_7", "Button_8", "Button_9", "Button_0", "Button_Comma", "Button_Add", "Button_Sub", "Button_Div", "Button_Mult", "Button_Rem", "Button_Neg", "Button_Del")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+script = ExtResource("2_hojb4")
+Button_Erase = NodePath("VBoxContainer_BasicOps/HBoxContainer0/Button_Erase")
+Button_Load = NodePath("VBoxContainer_BasicOps/HBoxContainer0/Button_Load")
+Button_1 = NodePath("VBoxContainer_Numbers/HBoxContainer3/Button1")
+Button_2 = NodePath("VBoxContainer_Numbers/HBoxContainer3/Button2")
+Button_3 = NodePath("VBoxContainer_Numbers/HBoxContainer3/Button3")
+Button_4 = NodePath("VBoxContainer_Numbers/HBoxContainer2/Button4")
+Button_5 = NodePath("VBoxContainer_Numbers/HBoxContainer2/Button5")
+Button_6 = NodePath("VBoxContainer_Numbers/HBoxContainer2/Button6")
+Button_7 = NodePath("VBoxContainer_Numbers/HBoxContainer/Button7")
+Button_8 = NodePath("VBoxContainer_Numbers/HBoxContainer/Button8")
+Button_9 = NodePath("VBoxContainer_Numbers/HBoxContainer/Button9")
+Button_0 = NodePath("VBoxContainer_Numbers/HBoxContainer4/Button_0")
+Button_Comma = NodePath("VBoxContainer_Numbers/HBoxContainer4/Button_Comma")
+Button_Add = NodePath("VBoxContainer_BasicOps/HBoxContainer1/Button_Add")
+Button_Sub = NodePath("VBoxContainer_BasicOps/HBoxContainer1/Button_Sub")
+Button_Div = NodePath("VBoxContainer_BasicOps/HBoxContainer4/Button_Div")
+Button_Mult = NodePath("VBoxContainer_BasicOps/HBoxContainer2/Button_Mult")
+Button_Rem = NodePath("VBoxContainer_BasicOps/HBoxContainer4/Button_Rem")
+Button_Neg = NodePath("VBoxContainer_BasicOps/HBoxContainer2/Button_Neg")
+Button_Del = NodePath("VBoxContainer_BasicOps/HBoxContainer0/Button_Del")
+
+[node name="VBoxContainer_Numbers" type="VBoxContainer" parent="Sequencer/HBoxContainer_Btns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button7" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button1" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Comma" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "."
+
+[node name="Button_0" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_Numbers/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="VBoxContainer_BasicOps" type="VBoxContainer" parent="Sequencer/HBoxContainer_Btns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer0" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Load" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer0"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Load"
+text = "LOAD"
+
+[node name="Button_Erase" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer0"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Erase"
+text = "ERASE"
+
+[node name="Button_Del" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer0"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Delete 1"
+text = "DEL"
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Add" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Plus"
+text = "+"
+
+[node name="Button_Sub" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer1"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Minus"
+text = "-"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Div" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Divide"
+text = "/"
+
+[node name="Button_Rem" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rest"
+text = "%"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Mult" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Multiply"
+text = "*"
+
+[node name="Button_Neg" type="Button" parent="Sequencer/HBoxContainer_Btns/VBoxContainer_BasicOps/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Negate"
+text = "+/-"

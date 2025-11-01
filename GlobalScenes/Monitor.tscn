@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ufol7owxh83"]
+
+[ext_resource type="Script" uid="uid://vidlc5jp5hjd" path="res://GlobalScenes/Monitor.cs" id="1_6dxwi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dxwi"]
+font_size = 11
+
+[node name="Monitor" type="Window" node_paths=PackedStringArray("LabelStatus")]
+oversampling_override = 1.0
+initial_position = 4
+size = Vector2i(300, 275)
+visible = false
+transient = true
+minimize_disabled = true
+maximize_disabled = true
+force_native = true
+script = ExtResource("1_6dxwi")
+LabelStatus = NodePath("PainelContainer/Label")
+
+[node name="PainelContainer" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PainelContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_6dxwi")
